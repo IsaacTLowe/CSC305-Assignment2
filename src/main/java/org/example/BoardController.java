@@ -11,9 +11,11 @@ public class BoardController {
 
     private final Board board;
     private final Driver driver = new Driver();
+    private final MainController mainController;
 
     public BoardController(Board board) {
         this.board = board;
+        this.mainController = new MainController(board);
         board.getOkButton().addActionListener(this::onOkPressed);
     }
 
@@ -34,17 +36,15 @@ public class BoardController {
 
         List<String> files = Blackboard.getInstance().getData();
 
-        System.out.println("Number of files: " + files.size());
-
         JPanel filePanel = board.getFilePanel();
         filePanel.removeAll();
 
         for (String file : files) {
-            JPanel box = new JPanel();
-            box.setPreferredSize(new Dimension(150, 50)); // make sure visible
-            box.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-            box.setBackground(new Color(173, 216, 230));
-            box.add(new JLabel(file));
+            JButton box = new JButton();
+            box.setPreferredSize(new Dimension(100, 100));
+            box.setActionCommand(file);
+            box.addActionListener(mainController);
+
             filePanel.add(box);
         }
 

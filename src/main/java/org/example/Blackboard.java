@@ -5,7 +5,8 @@ import java.util.*;
 public class Blackboard {
     private static Blackboard instance;
     private List<String> data;
-    private int rating;
+    private int length;
+    private int complexity;
 
     private Blackboard() {
         data = new ArrayList<String>();
@@ -26,11 +27,19 @@ public class Blackboard {
         return data;
     }
 
-    public void setRating(int rating) {
-        this.rating = rating;
+    public void setLength(int length) {
+        this.length = length;
     }
 
-    public int getRating() {
-        return rating;
+    public int getLength() {
+        return length;
+    }
+
+    public void setComplexity(int complexity) {
+        this.complexity = complexity;
+    }
+
+    public int getComplexity() {
+        return complexity;
     }
 }
