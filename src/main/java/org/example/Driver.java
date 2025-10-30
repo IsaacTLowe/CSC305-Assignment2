@@ -23,10 +23,6 @@ public class Driver {
             Blackboard.getInstance().addFileData(content);
         }
 
-
-
-        System.out.println(Blackboard.getInstance().getFileData());
-
     }
 
 }

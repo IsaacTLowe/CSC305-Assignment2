@@ -1,9 +1,9 @@
 package org.example;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
-public class MainController implements ActionListener {
+public class MainController {
 
     private final Board board;
 
@@ -11,9 +11,18 @@ public class MainController implements ActionListener {
         this.board = board;
     }
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        String fileName = e.getActionCommand();
+    // Call this method when a file panel is clicked
+    public void fileClicked(String fileName) {
         board.getFileName().setText("Selected file: " + fileName);
+    }
+
+    // Helper method to attach a mouse listener to a JPanel square
+    public void attachClickListener(javax.swing.JPanel panel, String fileName) {
+        panel.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                fileClicked(fileName);
+            }
+        });
     }
 }
