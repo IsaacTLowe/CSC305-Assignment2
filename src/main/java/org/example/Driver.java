@@ -17,11 +17,10 @@ public class Driver {
             url = url.substring(0, url.length() - 3);
         }
 
-        for(int i = 0; i < file.size(); i++) {
+        for (int i = 0; i < file.size(); i++) {
             String fileUrl = url.replace("tree", "blob") + file.get(i);
-            List<String> fileData = Collections.singletonList((gh.getFileContentFromUrl(fileUrl)));
-            Blackboard.getInstance().setFileData(fileData);
-
+            String content = gh.getFileContentFromUrl(fileUrl);
+            Blackboard.getInstance().addFileData(content);
         }
 
 

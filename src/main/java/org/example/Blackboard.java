@@ -29,7 +29,12 @@ public class Blackboard {
         return file;
     }
 
-    public void setFileData(List<String> fileData) { this.fileData = fileData; }
+    public void addFileData(String data) {
+        if (fileData == null) {
+            fileData = new ArrayList<>();
+        }
+        fileData.add(data);
+    }
 
     public List<String> getFileData() { return fileData; }
 
