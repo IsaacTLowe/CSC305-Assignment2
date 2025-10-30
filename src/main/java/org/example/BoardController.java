@@ -34,7 +34,7 @@ public class BoardController {
             JOptionPane.showMessageDialog(board, "Error reading GitHub: " + ex.getMessage());
         }
 
-        List<String> files = Blackboard.getInstance().getData();
+        List<String> files = Blackboard.getInstance().getFile();
 
         JPanel filePanel = board.getFilePanel();
         filePanel.removeAll();

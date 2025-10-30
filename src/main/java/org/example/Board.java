@@ -20,6 +20,32 @@ public class Board extends JFrame {
         linkField = new JTextField("");
         okButton = new JButton("OK");
 
+        JMenuBar menuBar = new JMenuBar();
+        JMenu fileMenu = new JMenu("File");
+        JMenu editMenu = new JMenu("Action");
+        JMenu helpMenu = new JMenu("Help");
+
+        JMenuItem openItem = new JMenuItem("Open from URL");
+        JMenuItem closeItem = new JMenuItem("Exit");
+
+        JMenuItem reloadItem = new JMenuItem("Reload");
+        JMenuItem clearItem = new JMenuItem("Clear");
+
+        JMenuItem aboutItem = new JMenuItem("About");
+
+        fileMenu.add(openItem);
+        fileMenu.add(closeItem);
+        editMenu.add(reloadItem);
+        helpMenu.add(clearItem);
+        helpMenu.add(aboutItem);
+
+        menuBar.add(fileMenu);
+        menuBar.add(editMenu);
+        menuBar.add(helpMenu);
+
+        setJMenuBar(menuBar);
+
+
         topPanel.add(linkField, BorderLayout.CENTER);
         topPanel.add(okButton, BorderLayout.EAST);
         add(topPanel, BorderLayout.NORTH);

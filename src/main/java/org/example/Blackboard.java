@@ -4,12 +4,14 @@ import java.util.*;
 
 public class Blackboard {
     private static Blackboard instance;
-    private List<String> data;
+    private List<String> file;
+    private List<String> fileData;
     private int length;
     private int complexity;
 
     private Blackboard() {
-        data = new ArrayList<String>();
+        file = new ArrayList<String>();
+        fileData = new ArrayList<String>();
     }
 
     public static Blackboard getInstance() {
@@ -19,13 +21,17 @@ public class Blackboard {
         return instance;
     }
 
-    public void setData(List<String> data) {
-        this.data = data;
+    public void setFile(List<String> data) {
+        this.file = data;
     }
 
-    public List<String> getData() {
-        return data;
+    public List<String> getFile() {
+        return file;
     }
+
+    public void setFileData(List<String> fileData) { this.fileData = fileData; }
+
+    public List<String> getFileData() { return fileData; }
 
     public void setLength(int length) {
         this.length = length;
