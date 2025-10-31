@@ -2,6 +2,11 @@ package org.example;
 
 import java.util.List;
 
+/**
+ * @author Amelia Harris and Isaac Lowe
+ * @version 1.0
+ */
+
 public class FileAnalyzer {
 
     public static void analyze(String fileData) {

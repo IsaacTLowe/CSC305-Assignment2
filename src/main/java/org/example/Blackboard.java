@@ -2,6 +2,11 @@ package org.example;
 
 import java.util.*;
 
+/**
+ * @author Amelia Harris and Isaac Lowe
+ * @version 1.0
+ */
+
 public class Blackboard {
     private static Blackboard instance;
     private List<String> file;

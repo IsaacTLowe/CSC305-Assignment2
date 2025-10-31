@@ -7,6 +7,11 @@ import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.util.List;
 
+/**
+ * @author Amelia Harris and Isaac Lowe
+ * @version 1.0
+ */
+
 public class BoardController {
 
     private final Board board;
@@ -27,7 +32,6 @@ public class BoardController {
             return;
         }
 
-        // Fetch files and file data from GitHub
         try {
             driver.readUrl(link);
         } catch (IOException ex) {
@@ -38,7 +42,6 @@ public class BoardController {
         List<String> files = Blackboard.getInstance().getFile();
         List<String> fileData = Blackboard.getInstance().getFileData();
 
-        // Analyze files and find max size
         int maxSize = 0;
         for (String content : fileData) {
             FileAnalyzer.analyze(content); // updates Blackboard length & complexity
@@ -48,40 +51,33 @@ public class BoardController {
             }
         }
 
-        // Clear old squares
         JPanel filePanel = board.getFilePanel();
         filePanel.removeAll();
 
-        // Create squares
         for (int i = 0; i < files.size(); i++) {
             String fileName = files.get(i);
             String content = fileData.get(i);
 
-            // Analyze file
             FileAnalyzer.analyze(content);
             int complexity = Blackboard.getInstance().getComplexity();
             int size = Blackboard.getInstance().getLength();
 
-            // Determine base color by complexity
             Color baseColor;
             if (complexity > 10) baseColor = Color.RED;
             else if (complexity > 5) baseColor = Color.YELLOW;
             else baseColor = Color.GREEN;
 
-            // Scale alpha by file size
             int alpha = (maxSize == 0) ? 0 : (int) (255.0 * size / maxSize);
             alpha = Math.min(255, Math.max(0, alpha));
 
             Color boxColor = new Color(baseColor.getRed(), baseColor.getGreen(), baseColor.getBlue(), alpha);
 
-            // Create JPanel square
             JPanel square = new JPanel();
             square.setPreferredSize(new Dimension(100, 100));
             square.setBackground(boxColor);
             square.setOpaque(true);
             square.setToolTipText("Size: " + size + " lines, Complexity: " + complexity);
 
-            // Click listener to notify MainController
             square.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseClicked(MouseEvent e) {

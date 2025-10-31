@@ -3,6 +3,11 @@ package org.example;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * @author Amelia Harris and Isaac Lowe
+ * @version 1.0
+ */
+
 public class Board extends JFrame {
 
     private JTextField linkField;

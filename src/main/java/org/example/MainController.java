@@ -3,6 +3,11 @@ package org.example;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+/**
+ * @author Amelia Harris and Isaac Lowe
+ * @version 1.0
+ */
+
 public class MainController {
 
     private final Board board;
@@ -11,12 +16,10 @@ public class MainController {
         this.board = board;
     }
 
-    // Call this method when a file panel is clicked
     public void fileClicked(String fileName) {
         board.getFileName().setText("Selected file: " + fileName);
     }
 
-    // Helper method to attach a mouse listener to a JPanel square
     public void attachClickListener(javax.swing.JPanel panel, String fileName) {
         panel.addMouseListener(new MouseAdapter() {
             @Override
