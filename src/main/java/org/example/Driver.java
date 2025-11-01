@@ -11,7 +11,7 @@ import java.util.*;
  */
 
 public class Driver {
-    private String token = "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";
+    private String token = "";
     private GitHubHandler gh = new GitHubHandler(token);
 
     public void readUrl(String url) throws IOException {

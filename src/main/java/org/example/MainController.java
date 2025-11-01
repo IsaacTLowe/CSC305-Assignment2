@@ -4,6 +4,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 /**
+ * handles the controls of the main (particurarily the file clicking)
  * @author Amelia Harris and Isaac Lowe
  * @version 1.0
  */

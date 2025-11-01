@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.util.List;
 
 /**
+ * Handles events from board
  * @author Amelia Harris and Isaac Lowe
  * @version 1.0
  */

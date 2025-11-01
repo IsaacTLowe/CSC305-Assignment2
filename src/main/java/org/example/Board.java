@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
+ * displays a board with various actions
  * @author Amelia Harris and Isaac Lowe
  * @version 1.0
  */

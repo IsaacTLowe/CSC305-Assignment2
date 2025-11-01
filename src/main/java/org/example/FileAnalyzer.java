@@ -3,6 +3,7 @@ package org.example;
 import java.util.List;
 
 /**
+ * analyzes the files and sends data to the blackboard to store
  * @author Amelia Harris and Isaac Lowe
  * @version 1.0
  */
